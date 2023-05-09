@@ -49,12 +49,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
         return 0;
     }
 
-    hwnd = CreateWindow(szAppName, TEXT("vertical bar"),
+    hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,szAppName, TEXT("vertical bar"),
         WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
         CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
          
-         hGroupBox=CreateWindow(
-                     "BUTTON", NULL,
+         hGroupBox=CreateWindowEx(
+                     WS_EX_CLIENTEDGE,szAppName,NULL,
                     WS_CHILD | WS_VISIBLE | BS_GROUPBOX ,
                     0, 0, 640, 640,
                     hwnd, NULL, hInstance, NULL
@@ -154,8 +154,8 @@ int yPos = 20;
     {   
         ii=ii-100;
         
-
-            SetWindowTextA(hwnd, options[ii]);
+ MessageBox(hwnd, options[ii], "Item selecionado", MB_OK | MB_ICONINFORMATION);
+           
         for(i=0;i<8;i++){
             if(i!=ii)SendMessage(hRadioButton[i], BM_SETCHECK, BST_UNCHECKED, 0);
 
