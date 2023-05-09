@@ -57,13 +57,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
                      "BUTTON", NULL,
                     WS_CHILD | WS_VISIBLE | BS_GROUPBOX ,
                     0, 0, 640, 640,
-                    hwnd, NULL, GetModuleHandle(NULL), NULL
+                    hwnd, NULL, hInstance, NULL
                 );
        
         hButton = CreateWindow("BUTTON", "show", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-            650, 10, 50, 30,  hwnd, (HMENU)30, GetModuleHandle(NULL), NULL);
+            650, 10, 50, 30,  hwnd, (HMENU)30, hInstance, NULL);
         hButton2 = CreateWindow("BUTTON", "hide", WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-            650, 350, 50, 30,  hwnd, (HMENU)40, GetModuleHandle(NULL), NULL);
+            650, 350, 50, 30,  hwnd, (HMENU)40, hInstance, NULL);
     numOptions = sizeof(options) / sizeof(options[0]);
     const int numOptions = sizeof(options) / sizeof(options[0]);
     int yPos = 20;
@@ -76,7 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
             options[i],
             WS_CHILD | WS_VISIBLE | BS_CHECKBOX,
             20, yPos, 150, 20,
-            hwnd,
+            hGroupBox,
             (HMENU)iiii,
             hInstance,
             NULL);
